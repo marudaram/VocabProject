@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="split(section)">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta charset="EUC-KR" />
+
+        <!--css-->
+        <link rel="stylesheet" type="text/css" href="../css/header.css" />
+
+    </head>
+
+    <body>
+
+    <!--헤더부분-->
+    <header id="header">
+        <nav class="nav">
+            <div class="uniqueColorHeader">
+                <h4 class="headerTitle">TIME TO CHANGE</h4>
+            </div>
+            <div class="whiteHeader">
+                <ul class="headerBox">
+                    <li class="login" style="padding-right: 30px">LOGIN</li>
+                    <li class="todo" style="padding-right: 10px">TODO LIST</li>
+                    <li class="dict" style="padding-right: 50px">DICTIONARY</li>
+                    <li class="vocab" style="padding-right: 55px"><a th:href="@{/vocab/note}">VOCABULARY</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!--바디-->
+    <section th:replace="${section}"></section>
+
+
+
+
+
+    </body>
+
+
+
+
+
+
+</th:block>
+
+
+</html>
+

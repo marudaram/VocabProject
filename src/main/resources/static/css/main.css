@@ -1,0 +1,58 @@
+.wrapBox {
+    display: flex;
+    justify-content: center;
+}
+
+.firstBox {
+    height: 500px;
+    display: block;
+}
+
+.firstBox .firstMiniBox {
+    border: 1px solid orange;
+    height: 500px;
+    width: 600px;
+    float: left;
+    margin-left: 150px;
+    display: inline-block;
+}
+
+.firstBox .firstMiniBox2 {
+    border: 1px solid black;
+    height: 500px;
+    width: 600px;
+    float: left;
+    margin-left: 150px;
+    display: inline-block;
+}
+
+.secondBox {
+    height: 500px;
+    display: block;
+}
+
+.secondBox .secondMiniBox {
+    border: 1px solid pink;
+    height: 500px;
+    width: 600px;
+    float: left;
+    margin-left: 130px;
+    display: inline-block;
+}
+
+.secondBox .secondMiniBox2 {
+    border: 1px solid violet;
+    height: 500px;
+    width: 600px;
+    float: left;
+    margin-left: 130px;
+    display: inline-block;
+}
+
+.thirdBox {
+    border: 2px solid cornflowerblue;
+    display: inline-block;
+    height: 1000px;
+    width: 500px;
+    float: right;
+}

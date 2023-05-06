@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="~{./include/basicLayout :: split(~{:: .wrapBox1})}">
+
+    <div class="wrapBox1">
+        <form name="noteForm" action="vocabRegistForm" method="post">
+            <div class="wrapBox2">
+                <div class="firstBox">
+                    <h3 style="float: left">Kor</h3>
+                    <h3 style="float: right">Eng</h3>
+                </div>
+                <div class="secondBox">
+                    <th:block th:each="num, index : ${#numbers.sequence(0,9)}">
+                        <div class="secondMiniBox1">
+                            <input type="text" name="vocab_kor[]"/>
+                        </div>
+                        <div class="secondMiniBox2">
+                            <input type=text name="vocab_eng[]"/>
+                        </div>
+                    </th:block>
+
+                </div>
+
+
+                <div class="thirdBox">
+                    <button style="margin-right: 50px">+ 5개</button>
+                  <button style="margin-right: 50px" type="submit">추가하기</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</th:block>
+
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .wrapBox1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .wrapBox2 {
+        border: 1px solid rgb(217, 217, 217);;
+        height: 600px;
+        width: 700px;
+    }
+
+    .firstBox {
+        text-align: center;
+        height: 50px;
+    }
+
+    .firstBox h3 {
+        font-size: 20px;
+        display: block;
+        width: 50%;
+        margin: 0 auto;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .secondBox {
+        height: 480px;
+
+    }
+
+    .secondBox .secondMiniBox1 {
+        float: left;
+        width: 50%;
+    }
+
+    .secondBox .secondMiniBox2 {
+        float: right;
+        width: 50%;
+    }
+
+    .secondBox div {
+        text-align: center;
+    }
+
+    .secondBox input {
+        height: 30px;
+        width: 250px;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+
+    .thirdBox {
+        height: 50px;
+        text-align: right;
+    }
+
+    .thirdBox div {
+        width: 50%;
+    }
+
+    .thirdBox button {
+        height: 50px;
+        width: 100px;
+        background-color: rgb(217, 217, 217);
+        border: none;
+
+    }
+</style>
+
+<script th:inline="javascript">
+    var msg = JSON.parse(`[[${msg}]]`);
+    console.log(msg);
+    if(msg != null) {
+        alert(msg);
+    }
+</script>

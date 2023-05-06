@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eunyoung.vocab.service.VocabMapper">
+
+    <insert id="vocabRegist" parameterType="VocabVO">
+        insert into VOCABULARY(vocab_num, user_id, vocab_kor, vocab_eng)
+        values (#{vocab_num}, "user1", #{vocab_kor}, #{vocab_eng})
+            <foreach item="item" index="index" collection="vocab_kor" open="(" separator="," close=")">
+                (#{vocab_num}, "user1", #{item.vocab_kor})
+            </foreach>
+
+            <foreach item="item" index="index" collection="vocab_eng" open="(" separator="," close=")">
+                #{item.vocab_eng}
+            </foreach>
+
+    </insert>
+
+
+</mapper>

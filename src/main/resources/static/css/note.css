@@ -1,0 +1,77 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.wrapBox1 {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    min-height: 100vh;
+}
+
+.wrapBox2 {
+    border: 1px solid rgb(217, 217, 217);;
+    height: 600px;
+    width: 700px;
+}
+
+.firstBox {
+    text-align: center;
+    height: 50px;
+}
+
+.firstBox h3 {
+    font-size: 20px;
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    height: 50px;
+    line-height: 50px;
+}
+
+.secondBox {
+    height: 480px;
+
+}
+
+.secondBox .secondMiniBox1 {
+    float: left;
+    width: 50%;
+}
+
+.secondBox .secondMiniBox2 {
+    float: right;
+    width: 50%;
+}
+
+.secondBox div {
+    text-align: center;
+}
+
+.secondBox input {
+    height: 30px;
+    width: 250px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+
+
+.thirdBox {
+    height: 50px;
+    text-align: right;
+}
+
+.thirdBox div {
+    width: 50%;
+}
+
+.thirdBox button {
+    height: 50px;
+    width: 100px;
+    background-color: rgb(217, 217, 217);
+    border: none;
+
+}
