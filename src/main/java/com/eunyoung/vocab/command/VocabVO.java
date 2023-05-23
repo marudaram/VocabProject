@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 public class VocabVO {
     private int vocab_num;
     private String user_id;
-    private String[] vocab_kor;
-    private String[] vocab_eng;
+    private String vocab_kor;
+    private String vocab_eng;
 }
 
 

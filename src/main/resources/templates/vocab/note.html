@@ -1,22 +1,22 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <th:block th:replace="~{./include/basicLayout :: split(~{:: .wrapBox1})}">
 
     <div class="wrapBox1">
-        <form name="noteForm" action="vocabRegistForm" method="post">
+        <form id="noteForm">
             <div class="wrapBox2">
                 <div class="firstBox">
                     <h3 style="float: left">Kor</h3>
                     <h3 style="float: right">Eng</h3>
                 </div>
                 <div class="secondBox">
-                    <th:block th:each="num, index : ${#numbers.sequence(0,9)}">
+                    <th:block th:each="num : ${#numbers.sequence(0,9)}">
                         <div class="secondMiniBox1">
-                            <input type="text" name="vocab_kor[]"/>
+                            <input type="text" name="vocab_kor"/>
                         </div>
                         <div class="secondMiniBox2">
-                            <input type=text name="vocab_eng[]"/>
+                            <input type=text name="vocab_eng"/>
                         </div>
                     </th:block>
 
@@ -25,7 +25,7 @@
 
                 <div class="thirdBox">
                     <button style="margin-right: 50px">+ 5개</button>
-                  <button style="margin-right: 50px" type="submit">추가하기</button>
+                    <button id="submitBtn" style="margin-right: 50px" type="submit">추가하기</button>
                 </div>
             </div>
         </form>
@@ -119,4 +119,52 @@
     if(msg != null) {
         alert(msg);
     }
+</script>
+
+<script th:inline="javascript">
+
+    $(document).ready(function () {
+
+        // $('input[name=vocab_kor]').attr('value', )
+        $("#submitBtn").click(function (i) {
+            event.preventDefault();
+            var korSize = $("input[name='vocab_kor']").length;
+            var engSize = $("input[name='vocab_eng']").length;
+            const korArr = [];
+            const engArr = [];
+            for(i = 0; i<korSize; i++) {
+                korArr[i] = $("input[name='vocab_kor']").eq(i).val();
+            }
+            for(i = 0; i < engSize; i++) {
+                engArr[i] = $("input[name='vocab_eng']").eq(i).val();
+            }
+            console.log(korArr);
+            console.log(engArr);
+
+            const result = korArr.reduce((acc, cur, idx) => {
+                acc[cur] = engArr[idx];
+                return acc;
+            }, new Object);
+            console.log(result);
+
+            const vocabList = [];
+            vocabList.push(result);
+
+            $.ajax({
+                url : "/vocab/vocabRegistForm",
+                type : "POST",
+                data : {
+                    vocabList : JSON.stringify(vocabList)
+                },
+                dataType : 'JSON',
+                success : function (result) {
+                    console.log(result);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            })
+        });
+
+    })
 </script>
